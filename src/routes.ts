@@ -17,6 +17,7 @@ import { ListPacientByIdService } from "./services/paciente/ListPacientByIdServi
 import { ListPacientByIdController } from "./controllers/paciente/ListPacientByIdController";
 import { ListConveniosController } from "./controllers/convenio/ListConveniosController";
 import { ListConvenioByIdController } from "./controllers/convenio/ListConvenioByIdController";
+import { DeleteConvenioController } from "./controllers/convenio/DeleteConvenioController";
 
 const router = Router();
 
@@ -44,6 +45,7 @@ router.get('/pacientes/:paciente_id', new ListPacientByIdController().handle);
 router.post('/convenio', isAuthenticated, new CreateConvenioController().handle)
 router.get('/convenio', isAuthenticated, new ListConveniosController().handle)
 router.get('/convenio/:convenio_id', isAuthenticated, new ListConvenioByIdController().handle)
+router.delete('/convenio/:convenio_id', isAuthenticated, new DeleteConvenioController().handle)
 
 
 export { router }
