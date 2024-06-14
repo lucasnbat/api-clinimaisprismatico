@@ -56,3 +56,5 @@ class CreatePacientService {
         return paciente;
     }
 }
+
+export { CreatePacientService }

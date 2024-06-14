@@ -9,6 +9,7 @@ import { ListUserByIdController } from "./controllers/usuarios/ListUserByIdContr
 import { ToggleUserActiveStatusController } from "./controllers/usuarios/ToggleUserActiveStatusController";
 import { SetNewPasswordController } from "./controllers/usuarios/SetNewPasswordController";
 import { ListPacientsController } from "./controllers/paciente/ListPacientsController";
+import { CreatePacientController } from "./controllers/paciente/CreatePacientController";
 
 const router = Router();
 
@@ -26,7 +27,7 @@ router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPassw
 // rotas pacientes
 
 router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
-router.post('/pacientes',isAuthenticated )
+router.post('/pacientes',isAuthenticated, new CreatePacientController().handle)
 
 
 export { router }
