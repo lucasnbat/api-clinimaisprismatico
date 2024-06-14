@@ -97,7 +97,7 @@ model Medico {
   email             String
   telefone          String
   contato_adicional String
-  ativo             Boolean
+  ativo             Boolean   @default(true)
   codigo_medico     Int       @default(0)
   created_at        DateTime? @default(now())
   updated_at        DateTime? @default(now())

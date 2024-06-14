@@ -19,6 +19,7 @@ import { ListConveniosController } from "./controllers/convenio/ListConveniosCon
 import { ListConvenioByIdController } from "./controllers/convenio/ListConvenioByIdController";
 import { DeleteConvenioController } from "./controllers/convenio/DeleteConvenioController";
 import { UpdateConvenioController } from "./controllers/convenio/UpdateConvenioController";
+import { CreateDoctorController } from "./controllers/medico/CreateDoctorController";
 
 const router = Router();
 
@@ -48,6 +49,10 @@ router.get('/convenio', isAuthenticated, new ListConveniosController().handle)
 router.get('/convenio/:convenio_id', isAuthenticated, new ListConvenioByIdController().handle)
 router.delete('/convenio/:convenio_id', isAuthenticated, new DeleteConvenioController().handle)
 router.put('/convenio/:convenio_id', isAuthenticated, new UpdateConvenioController().handle)
+
+// rotas medico
+
+router.post('/medico/', isAuthenticated, new CreateDoctorController().handle);
 
 
 export { router }
