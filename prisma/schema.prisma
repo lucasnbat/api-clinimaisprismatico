@@ -38,7 +38,7 @@ model Paciente {
   email             String
   cns               Int
   numero_carteira   Int
-  ativo             Boolean
+  ativo             Boolean   @default(true)
   codigo_paciente   Int       @default(0)
   created_at        DateTime? @default(now())
   updated_at        DateTime? @default(now())

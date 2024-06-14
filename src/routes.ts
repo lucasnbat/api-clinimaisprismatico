@@ -26,6 +26,7 @@ router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPassw
 // rotas pacientes
 
 router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
+router.post('/pacientes',isAuthenticated )
 
 
 export { router }
