@@ -11,6 +11,7 @@ import { SetNewPasswordController } from "./controllers/usuarios/SetNewPasswordC
 import { ListPacientsController } from "./controllers/paciente/ListPacientsController";
 import { CreatePacientController } from "./controllers/paciente/CreatePacientController";
 import { CreateConvenioController } from "./controllers/convenio/CreateConvenioController";
+import { DeletePacientController } from "./controllers/paciente/DeletePacientController";
 
 const router = Router();
 
@@ -29,10 +30,12 @@ router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPassw
 
 router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
 router.post('/pacientes', isAuthenticated, new CreatePacientController().handle)
+router.delete('/pacientes/:paciente_id', isAuthenticated, new DeletePacientController().handle)
 
 // rotas convenio
 
 router.post('/convenio', isAuthenticated, new CreateConvenioController().handle)
+
 
 
 export { router }
