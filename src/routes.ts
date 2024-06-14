@@ -13,7 +13,6 @@ import { CreatePacientController } from "./controllers/paciente/CreatePacientCon
 import { CreateConvenioController } from "./controllers/convenio/CreateConvenioController";
 import { DeletePacientController } from "./controllers/paciente/DeletePacientController";
 import { UpdatePacientController } from "./controllers/paciente/UpdatePacientController";
-import { ListPacientByIdService } from "./services/paciente/ListPacientByIdService";
 import { ListPacientByIdController } from "./controllers/paciente/ListPacientByIdController";
 import { ListConveniosController } from "./controllers/convenio/ListConveniosController";
 import { ListConvenioByIdController } from "./controllers/convenio/ListConvenioByIdController";
@@ -22,41 +21,42 @@ import { UpdateConvenioController } from "./controllers/convenio/UpdateConvenioC
 import { CreateDoctorController } from "./controllers/medico/CreateDoctorController";
 import { ListDoctorsController } from "./controllers/medico/ListDoctorsController";
 import { ListDoctorByIdController } from "./controllers/medico/ListDoctorByIdController";
+import { DeleteDoctorController } from "./controllers/medico/DeleteDoctorController";
 
 const router = Router();
 
 // rotas usuários
 
 router.post('/usuarios', new CreateUserController().handle);
-router.post('/usuarios/session', new AuthUserController().handle)
+router.post('/usuarios/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 router.get('/usuarios', isAuthenticated, new ListUsersController().handle);
-router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController().handle)
-router.get('/usuarios/:usuario_id', isAuthenticated, new ListUserByIdController().handle)
-router.put('/usuarios/:usuario_id', isAuthenticated, new ToggleUserActiveStatusController().handle)
-router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPasswordController().handle)
+router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController().handle);
+router.get('/usuarios/:usuario_id', isAuthenticated, new ListUserByIdController().handle);
+router.put('/usuarios/:usuario_id', isAuthenticated, new ToggleUserActiveStatusController().handle);
+router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPasswordController().handle);
 
 // rotas pacientes
 
-router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
-router.post('/pacientes', isAuthenticated, new CreatePacientController().handle)
-router.delete('/pacientes/:paciente_id', isAuthenticated, new DeletePacientController().handle)
-router.put('/pacientes/:paciente_id', isAuthenticated, new UpdatePacientController().handle)
+router.get('/pacientes', isAuthenticated, new ListPacientsController().handle);
+router.post('/pacientes', isAuthenticated, new CreatePacientController().handle);
+router.delete('/pacientes/:paciente_id', isAuthenticated, new DeletePacientController().handle);
+router.put('/pacientes/:paciente_id', isAuthenticated, new UpdatePacientController().handle);
 router.get('/pacientes/:paciente_id', new ListPacientByIdController().handle);
 
 // rotas convenio
 
-router.post('/convenio', isAuthenticated, new CreateConvenioController().handle)
-router.get('/convenio', isAuthenticated, new ListConveniosController().handle)
-router.get('/convenio/:convenio_id', isAuthenticated, new ListConvenioByIdController().handle)
-router.delete('/convenio/:convenio_id', isAuthenticated, new DeleteConvenioController().handle)
-router.put('/convenio/:convenio_id', isAuthenticated, new UpdateConvenioController().handle)
+router.post('/convenio', isAuthenticated, new CreateConvenioController().handle);
+router.get('/convenio', isAuthenticated, new ListConveniosController().handle);
+router.get('/convenio/:convenio_id', isAuthenticated, new ListConvenioByIdController().handle);
+router.delete('/convenio/:convenio_id', isAuthenticated, new DeleteConvenioController().handle);
+router.put('/convenio/:convenio_id', isAuthenticated, new UpdateConvenioController().handle);
 
 // rotas medico
 
 router.post('/medico', isAuthenticated, new CreateDoctorController().handle);
-router.get('/medico', isAuthenticated, new ListDoctorsController().handle)
-router.get('/medico/:medico_id', isAuthenticated, new ListDoctorByIdController().handle)
-
+router.get('/medico', isAuthenticated, new ListDoctorsController().handle);
+router.get('/medico/:medico_id', isAuthenticated, new ListDoctorByIdController().handle);
+router.delete('/medico/:medico_id', isAuthenticated, new DeleteDoctorController().handle);
 
 export { router }
