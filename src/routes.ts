@@ -22,6 +22,7 @@ import { CreateDoctorController } from "./controllers/medico/CreateDoctorControl
 import { ListDoctorsController } from "./controllers/medico/ListDoctorsController";
 import { ListDoctorByIdController } from "./controllers/medico/ListDoctorByIdController";
 import { DeleteDoctorController } from "./controllers/medico/DeleteDoctorController";
+import { UpdateDoctorController } from "./controllers/medico/UpdateDoctorController";
 
 const router = Router();
 
@@ -58,5 +59,6 @@ router.post('/medico', isAuthenticated, new CreateDoctorController().handle);
 router.get('/medico', isAuthenticated, new ListDoctorsController().handle);
 router.get('/medico/:medico_id', isAuthenticated, new ListDoctorByIdController().handle);
 router.delete('/medico/:medico_id', isAuthenticated, new DeleteDoctorController().handle);
+router.put('/medico/:medico_id', isAuthenticated, new UpdateDoctorController().handle);
 
 export { router }
