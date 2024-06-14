@@ -21,6 +21,7 @@ import { DeleteConvenioController } from "./controllers/convenio/DeleteConvenioC
 import { UpdateConvenioController } from "./controllers/convenio/UpdateConvenioController";
 import { CreateDoctorController } from "./controllers/medico/CreateDoctorController";
 import { ListDoctorsController } from "./controllers/medico/ListDoctorsController";
+import { ListDoctorByIdController } from "./controllers/medico/ListDoctorByIdController";
 
 const router = Router();
 
@@ -55,6 +56,7 @@ router.put('/convenio/:convenio_id', isAuthenticated, new UpdateConvenioControll
 
 router.post('/medico', isAuthenticated, new CreateDoctorController().handle);
 router.get('/medico', isAuthenticated, new ListDoctorsController().handle)
+router.get('/medico/:medico_id', isAuthenticated, new ListDoctorByIdController().handle)
 
 
 export { router }
