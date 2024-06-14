@@ -32,7 +32,7 @@ class CreatePacientController {
             }
         );
 
-        return paciente;
+        return res.json(paciente);
     }
 }
 

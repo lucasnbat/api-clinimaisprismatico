@@ -10,6 +10,7 @@ import { ToggleUserActiveStatusController } from "./controllers/usuarios/ToggleU
 import { SetNewPasswordController } from "./controllers/usuarios/SetNewPasswordController";
 import { ListPacientsController } from "./controllers/paciente/ListPacientsController";
 import { CreatePacientController } from "./controllers/paciente/CreatePacientController";
+import { CreateConvenioController } from "./controllers/convenio/CreateConvenioController";
 
 const router = Router();
 
@@ -27,7 +28,11 @@ router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPassw
 // rotas pacientes
 
 router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
-router.post('/pacientes',isAuthenticated, new CreatePacientController().handle)
+router.post('/pacientes', isAuthenticated, new CreatePacientController().handle)
+
+// rotas convenio
+
+router.post('/convenio', isAuthenticated, new CreateConvenioController().handle)
 
 
 export { router }
