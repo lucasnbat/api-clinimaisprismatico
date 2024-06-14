@@ -40,7 +40,7 @@ class AuthUserService {
             },
             jwtSecret,
             {
-                // subject: usuario.id,
+                subject: usuario.id.toString(),
                 expiresIn: '30d'
             })
 
