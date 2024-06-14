@@ -13,6 +13,8 @@ import { CreatePacientController } from "./controllers/paciente/CreatePacientCon
 import { CreateConvenioController } from "./controllers/convenio/CreateConvenioController";
 import { DeletePacientController } from "./controllers/paciente/DeletePacientController";
 import { UpdatePacientController } from "./controllers/paciente/UpdatePacientController";
+import { ListPacientByIdService } from "./services/paciente/ListPacientByIdService";
+import { ListPacientByIdController } from "./controllers/paciente/ListPacientByIdController";
 
 const router = Router();
 
@@ -33,6 +35,7 @@ router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
 router.post('/pacientes', isAuthenticated, new CreatePacientController().handle)
 router.delete('/pacientes/:paciente_id', isAuthenticated, new DeletePacientController().handle)
 router.put('/pacientes/:paciente_id', isAuthenticated, new UpdatePacientController().handle)
+router.get('/pacientes/:paciente_id', new ListPacientByIdController().handle);
 
 // rotas convenio
 
