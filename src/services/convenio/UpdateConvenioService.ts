@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma"
 
 class UpdateConvenioService {
-    async execute(convenio_id: number, convenio: string) {
+    async execute(convenio: string, convenio_id: number) {
 
         const atualizarConvenio = await prismaClient.convenio.update({
             where: {
