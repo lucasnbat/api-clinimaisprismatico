@@ -1,0 +1,5 @@
+class DetailUserService {
+    
+}
+
+export { DetailUserService }

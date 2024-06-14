@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuarios {
+  id         Int       @id @default(autoincrement())
+  nome       String
+  email      String
+  password   String
+  root       Boolean   @default(false)
+  ativo      Boolean   @default(true)
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("usuarios")
+}
+
+model Paciente {
+  id                Int       @id @default(autoincrement())
+  cpf               String
+  nome_completo     String
+  data_nascimento   DateTime
+  endereco          String
+  celular           String
+  contato_adicional String
+  convenio_id       Int
+  email             String
+  cns               Int
+  numero_carteira   Int
+  ativo             Boolean
+  codigo_paciente   Int       @default(0)
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @default(now())
+
+  convenio  Convenio?   @relation(fields: [convenio_id], references: [id])
+  consultas Consultas[]
+
+  @@map("paciente")
+}
+
+model Convenio {
+  id         Int        @id @default(autoincrement())
+  convenio   String
+  paciente   Paciente[]
+  created_at DateTime?  @default(now())
+  updated_at DateTime?  @default(now())
+
+  @@map("convenio")
+}
+
+// id: integer
+// created_at: timestamp
+// medico_id: integer
+// paciente_id: integer
+// data_consulta: date
+// horario: text
+// outras_informacoes: text
+// is_cancelada: bool
+
+model Consultas {
+  id                 Int       @id @default(autoincrement())
+  medico_id          Int
+  paciente_id        Int
+  data_consulta      DateTime
+  horario            String
+  outras_informacoes String
+  is_cancelada       Boolean
+  created_at         DateTime? @default(now())
+  updated_at         DateTime? @default(now())
+
+  medico   Medico?   @relation(fields: [medico_id], references: [id])
+  paciente Paciente? @relation(fields: [paciente_id], references: [id])
+
+  @@map("consultas")
+}
+
+model Medico {
+  id                Int       @id @default(autoincrement())
+  codigo            String //digitavel
+  cpf               String
+  nome              String
+  crm               String
+  conselho          String
+  uf_conselho       String
+  especialidade     String
+  email             String
+  telefone          String
+  contato_adicional String
+  ativo             Boolean
+  codigo_medico     Int       @default(0)
+  created_at        DateTime? @default(now())
+  updated_at        DateTime? @default(now())
+
+  consultas Consultas[]
+
+  @@map("Medico")
+}
