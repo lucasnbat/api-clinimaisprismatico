@@ -8,8 +8,11 @@ import { DeleteUserController } from "./controllers/usuarios/DeleteUserControlle
 import { ListUserByIdController } from "./controllers/usuarios/ListUserByIdController";
 import { ToggleUserActiveStatusController } from "./controllers/usuarios/ToggleUserActiveStatusController";
 import { SetNewPasswordController } from "./controllers/usuarios/SetNewPasswordController";
+import { ListPacientsController } from "./controllers/paciente/ListPacientsController";
 
 const router = Router();
+
+// rotas usuários
 
 router.post('/usuarios', new CreateUserController().handle);
 router.post('/usuarios/session', new AuthUserController().handle)
@@ -19,6 +22,10 @@ router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController
 router.get('/usuarios/:usuario_id', isAuthenticated, new ListUserByIdController().handle)
 router.put('/usuarios/:usuario_id', isAuthenticated, new ToggleUserActiveStatusController().handle)
 router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPasswordController().handle)
+
+// rotas pacientes
+
+router.get('/pacientes', isAuthenticated, new ListPacientsController().handle)
 
 
 export { router }
