@@ -75,7 +75,7 @@ model Consultas {
   data_consulta      DateTime
   horario            String
   outras_informacoes String
-  is_cancelada       Boolean
+  is_cancelada       Boolean   @default(false)
   created_at         DateTime? @default(now())
   updated_at         DateTime? @default(now())
 
