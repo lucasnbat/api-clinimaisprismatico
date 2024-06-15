@@ -24,11 +24,12 @@ import { ListDoctorByIdController } from "./controllers/medico/ListDoctorByIdCon
 import { DeleteDoctorController } from "./controllers/medico/DeleteDoctorController";
 import { UpdateDoctorController } from "./controllers/medico/UpdateDoctorController";
 import { CreateConsultaController } from "./controllers/consulta/CreateConsultaController";
-import { ListConsultaByIdController } from "./controllers/consulta/ListConsultaById";
+import { ListConsultaByIdController } from "./controllers/consulta/ListConsultaByIdController";
 import { UpdateConsultaController } from "./controllers/consulta/UpdateConsultaController";
 import { DeleteConsultaController } from "./controllers/consulta/DeleteConsultaController";
 import { ToggleConsultaStatusController } from "./controllers/consulta/ToggleConsultaStatusController";
 import { ListAllConsultasController } from "./controllers/consulta/ListAllConsultasController";
+import { ListConsultasByMedicoAndDateController } from "./controllers/medico/ListConsultasByMedicoAndDateController";
 
 const router = Router();
 
@@ -75,5 +76,8 @@ router.put('/consulta/:consulta_id', isAuthenticated, new UpdateConsultaControll
 router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaController().handle);
 router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleConsultaStatusController().handle);
 router.get('/consulta', isAuthenticated, new ListAllConsultasController().handle);
+
+// rotas consulta por dia (usar querys)
+router.get('/consulta/medico', isAuthenticated, new ListConsultasByMedicoAndDateController().handle);
 
 export { router }
