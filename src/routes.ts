@@ -24,6 +24,8 @@ import { ListDoctorByIdController } from "./controllers/medico/ListDoctorByIdCon
 import { DeleteDoctorController } from "./controllers/medico/DeleteDoctorController";
 import { UpdateDoctorController } from "./controllers/medico/UpdateDoctorController";
 import { CreateConsultaController } from "./controllers/consulta/CreateConsultaController";
+import { ListConsultaByIdController } from "./controllers/consulta/ListConsultaById";
+import { UpdateConsultaController } from "./controllers/consulta/UpdateConsultaController";
 
 const router = Router();
 
@@ -64,7 +66,8 @@ router.put('/medico/:medico_id', isAuthenticated, new UpdateDoctorController().h
 
 // rotas consulta
 
-router.post('/consulta', isAuthenticated, new CreateConsultaController().handle)
-
+router.post('/consulta', isAuthenticated, new CreateConsultaController().handle);
+router.get('/consulta/:consulta_id', isAuthenticated, new ListConsultaByIdController().handle);
+router.put('/consulta/:consulta_id', isAuthenticated, new UpdateConsultaController().handle);
 
 export { router }
