@@ -27,6 +27,7 @@ import { CreateConsultaController } from "./controllers/consulta/CreateConsultaC
 import { ListConsultaByIdController } from "./controllers/consulta/ListConsultaById";
 import { UpdateConsultaController } from "./controllers/consulta/UpdateConsultaController";
 import { DeleteConsultaController } from "./controllers/consulta/DeleteConsultaController";
+import { ToggleConsultaStatusController } from "./controllers/consulta/ToggleConsultaStatusController";
 
 const router = Router();
 
@@ -70,6 +71,7 @@ router.put('/medico/:medico_id', isAuthenticated, new UpdateDoctorController().h
 router.post('/consulta', isAuthenticated, new CreateConsultaController().handle);
 router.get('/consulta/:consulta_id', isAuthenticated, new ListConsultaByIdController().handle);
 router.put('/consulta/:consulta_id', isAuthenticated, new UpdateConsultaController().handle);
-router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaController().handle)
+router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaController().handle);
+router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleConsultaStatusController().handle)
 
 export { router }
