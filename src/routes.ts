@@ -30,6 +30,10 @@ import { DeleteConsultaController } from "./controllers/consulta/DeleteConsultaC
 import { ToggleConsultaStatusController } from "./controllers/consulta/ToggleConsultaStatusController";
 import { ListAllConsultasController } from "./controllers/consulta/ListAllConsultasController";
 import { ListConsultasByMedicoAndDateAndTimeController } from "./controllers/consulta/ListConsultasByMedicoAndDateAndTimeController";
+import { TotalMedicosController } from "./controllers/totalizadores/TotalMedicosController";
+import { TotalPacientesController } from "./controllers/totalizadores/TotalPacientesController";
+import { TotalConsultasCanceladasController } from "./controllers/totalizadores/TotalConsultasCanceladasController";
+import { TotalConsultasHojeController } from "./controllers/totalizadores/TotalConsultasHojeController";
 
 const router = Router();
 
@@ -79,6 +83,12 @@ router.get('/consulta', isAuthenticated, new ListAllConsultasController().handle
 
 // rotas consulta por dia e horário (usar querys)
 router.get('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
+
+// rotas totalizadores
+router.get('/totalizadores/medicos', isAuthenticated, new TotalMedicosController().handle);
+router.get('/totalizadores/pacientes', isAuthenticated, new TotalPacientesController().handle);
+router.get('/totalizadores/consultas/canceladas', isAuthenticated, new TotalConsultasCanceladasController().handle);
+router.get('/totalizadores/consultas/hoje', isAuthenticated, new TotalConsultasHojeController().handle);
 
 
 export { router }
