@@ -29,7 +29,7 @@ import { UpdateConsultaController } from "./controllers/consulta/UpdateConsultaC
 import { DeleteConsultaController } from "./controllers/consulta/DeleteConsultaController";
 import { ToggleConsultaStatusController } from "./controllers/consulta/ToggleConsultaStatusController";
 import { ListAllConsultasController } from "./controllers/consulta/ListAllConsultasController";
-import { ListConsultasByMedicoAndDateController } from "./controllers/medico/ListConsultasByMedicoAndDateController";
+import { ListConsultasByMedicoAndDateAndTimeController } from "./controllers/consulta/ListConsultasByMedicoAndDateAndTimeController";
 
 const router = Router();
 
@@ -77,7 +77,8 @@ router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaContr
 router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleConsultaStatusController().handle);
 router.get('/consulta', isAuthenticated, new ListAllConsultasController().handle);
 
-// rotas consulta por dia (usar querys)
-router.get('/consulta/medico', isAuthenticated, new ListConsultasByMedicoAndDateController().handle);
+// rotas consulta por dia e horário (usar querys)
+router.get('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
+
 
 export { router }
