@@ -16,6 +16,9 @@ export function isAuthenticated(
         return res.status(401).end();
     }
 
+    // Bearer 
+    // token = sahdfafhsjkfhsajfkhsfksjfhasjkfhas
+
     const [, token] = authToken.split(' ');
 
     try {

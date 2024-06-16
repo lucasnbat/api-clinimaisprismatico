@@ -4,7 +4,7 @@ import { format, toZonedTime } from 'date-fns-tz';
 interface ConsultaRequest {
     medico_id: number,
     paciente_id: number,
-    data_consulta: string,  
+    data_consulta: string, // DateTime --> string
     horario: string,
     outras_informacoes: string,
     is_cancelada?: boolean,
