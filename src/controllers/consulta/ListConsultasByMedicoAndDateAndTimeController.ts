@@ -3,7 +3,7 @@ import { ListConsultasByMedicoAndDateAndTimeService } from "../../services/consu
 
 class ListConsultasByMedicoAndDateAndTimeController {
     async handle(req: Request, res: Response) {
-        const { medico_id, data_consulta, horario } = req.query;
+        const { medico_id, data_consulta, horario } = req.body;
 
         const listConsultasService = new ListConsultasByMedicoAndDateAndTimeService();
         const consultas = await listConsultasService.execute({

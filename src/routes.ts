@@ -82,7 +82,7 @@ router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleC
 router.get('/consulta', isAuthenticated, new ListAllConsultasController().handle);
 
 // rotas consulta por dia e horário (usar querys)
-router.get('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
+router.post('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
 
 // rotas totalizadores
 router.get('/totalizadores/medicos', isAuthenticated, new TotalMedicosController().handle);
