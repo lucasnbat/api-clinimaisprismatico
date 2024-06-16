@@ -54,7 +54,7 @@ router.get('/pacientes', isAuthenticated, new ListPacientsController().handle);
 router.post('/pacientes', isAuthenticated, new CreatePacientController().handle);
 router.delete('/pacientes/:paciente_id', isAuthenticated, new DeletePacientController().handle);
 router.put('/pacientes/:paciente_id', isAuthenticated, new UpdatePacientController().handle);
-router.get('/pacientes/:paciente_id', new ListPacientByIdController().handle);
+router.get('/pacientes/:paciente_id', isAuthenticated, new ListPacientByIdController().handle);
 
 // rotas convenio
 
