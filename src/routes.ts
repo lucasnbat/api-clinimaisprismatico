@@ -80,8 +80,6 @@ router.put('/consulta/:consulta_id', isAuthenticated, new UpdateConsultaControll
 router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaController().handle);
 router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleConsultaStatusController().handle);
 router.get('/consulta', isAuthenticated, new ListAllConsultasController().handle);
-
-// rotas consulta por dia e horário (usar querys)
 router.post('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
 
 // rotas totalizadores
