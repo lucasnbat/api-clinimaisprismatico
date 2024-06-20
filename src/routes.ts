@@ -34,6 +34,7 @@ import { TotalMedicosController } from "./controllers/totalizadores/TotalMedicos
 import { TotalPacientesController } from "./controllers/totalizadores/TotalPacientesController";
 import { TotalConsultasCanceladasController } from "./controllers/totalizadores/TotalConsultasCanceladasController";
 import { TotalConsultasHojeController } from "./controllers/totalizadores/TotalConsultasHojeController";
+import { LogoutUserController } from "./controllers/usuarios/LogoutUserController";
 
 const router = Router();
 
@@ -41,6 +42,7 @@ const router = Router();
 
 router.post('/usuarios', new CreateUserController().handle);
 router.post('/usuarios/session', new AuthUserController().handle);
+router.post('/usuarios/logout', isAuthenticated, new LogoutUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 router.get('/usuarios', isAuthenticated, new ListUsersController().handle);
 router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController().handle);
