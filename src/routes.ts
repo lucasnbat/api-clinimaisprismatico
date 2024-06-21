@@ -46,6 +46,7 @@ router.post('/usuarios/session', new AuthUserController().handle);
 router.post('/usuarios/logout', isAuthenticated, new LogoutUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 router.get('/usuarios', isAuthenticated, new ListUsersController().handle);
+router.post('/usuarios/autenticado', isAuthenticated, new CreateUserController().handle);
 router.put('/usuarios/:usuario_id', isAuthenticated, new UpdateUserController().handle);
 router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController().handle);
 router.get('/usuarios/:usuario_id', isAuthenticated, new ListUserByIdController().handle);
