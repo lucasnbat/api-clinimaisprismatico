@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "paciente" ALTER COLUMN "cns" SET DATA TYPE TEXT,
+ALTER COLUMN "numero_carteira" SET DATA TYPE TEXT;

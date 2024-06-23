@@ -36,8 +36,8 @@ model Paciente {
   contato_adicional String
   convenio_id       Int
   email             String
-  cns               Int
-  numero_carteira   Int
+  cns               String
+  numero_carteira   String
   ativo             Boolean   @default(true)
   codigo_paciente   Int       @default(0)
   created_at        DateTime? @default(now())
