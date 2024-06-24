@@ -11,6 +11,8 @@ class DetailUserService {
                 id: true,
                 nome: true,
                 email: true,
+                ativo: true,
+                root: true
             }
         })
 

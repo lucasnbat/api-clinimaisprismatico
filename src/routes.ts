@@ -50,7 +50,7 @@ router.post('/usuarios/autenticado', isAuthenticated, new CreateUserController()
 router.put('/usuarios/:usuario_id', isAuthenticated, new UpdateUserController().handle);
 router.delete('/usuarios/:usuario_id', isAuthenticated, new DeleteUserController().handle);
 router.get('/usuarios/:usuario_id', isAuthenticated, new ListUserByIdController().handle);
-router.put('/usuarios/:usuario_id', isAuthenticated, new ToggleUserActiveStatusController().handle);
+router.put('/usuarios/:usuario_id/toggle', isAuthenticated, new ToggleUserActiveStatusController().handle);
 router.put('/usuarios/newPassword/:usuario_id', isAuthenticated, new SetNewPasswordController().handle);
 
 // rotas pacientes
@@ -84,7 +84,7 @@ router.get('/consulta/:consulta_id', isAuthenticated, new ListConsultaByIdContro
 router.put('/consulta/:consulta_id', isAuthenticated, new UpdateConsultaController().handle);
 router.delete('/consulta/:consulta_id', isAuthenticated, new DeleteConsultaController().handle);
 router.put('/consulta/toggleConsulta/:consulta_id', isAuthenticated, new ToggleConsultaStatusController().handle);
-router.post('/consulta_search', isAuthenticated, new ListAllConsultasController().handle);
+router.post('/consultas_search', isAuthenticated, new ListAllConsultasController().handle);
 router.post('/consulta/medico/dia', isAuthenticated, new ListConsultasByMedicoAndDateAndTimeController().handle);
 
 // rotas totalizadores

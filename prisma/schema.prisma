@@ -34,7 +34,7 @@ model Paciente {
   endereco          String
   celular           String
   contato_adicional String
-  convenio_id       Int
+  convenio_id       Int?
   email             String
   cns               String
   numero_carteira   String
