@@ -21,8 +21,8 @@ interface RequestUser {
     contato_adicional: string;
     convenio_id: number;
     email: string;
-    cns: number;
-    numero_carteira: number;
+    cns: string;
+    numero_carteira: string;
 }
 
 class CreatePacientService {
@@ -48,7 +48,7 @@ class CreatePacientService {
                 convenio_id: convenio_id,
                 email: email,
                 cns: cns,
-                numero_carteira,
+                numero_carteira: numero_carteira,
                 ativo: true,
             }
         });

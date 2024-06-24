@@ -9,8 +9,8 @@ interface UpdatePacientRequest {
     contato_adicional?: string;
     convenio_id?: number;
     email?: string;
-    cns?: number;
-    numero_carteira?: number;
+    cns?: string;
+    numero_carteira?: string;
     paciente_id: number;
 }
 
