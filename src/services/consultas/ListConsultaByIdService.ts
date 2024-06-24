@@ -5,6 +5,10 @@ class ListConsultaByIdService {
         const consulta = await prismaClient.consultas.findUnique({
             where: {
                 id: consulta_id,
+            },
+            include: {
+                medico: true,
+                paciente: true,
             }
         });
 

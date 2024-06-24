@@ -28,20 +28,35 @@ class CreateDoctorService {
         contato_adicional,
         ativo,
     }: DoctorRequest) {
+        const data: any = {
+            cpf: cpf,
+            nome: nome,
+            telefone: telefone
+        }
+
+        if (!!crm)
+            data.crm = crm;
+
+        if (!!conselho)
+            data.conselho = conselho;
+
+        if (!!uf_conselho)
+            data.uf_conselho = uf_conselho;
+
+        if (!!especialidade)
+            data.especialidade = especialidade;
+
+        if (!!email)
+            data.email = email;
+
+        if (!!contato_adicional)
+            data.contato_adicional = contato_adicional;
+
+        if (codigo)
+            data.codigo = codigo;
+
         const medico = await prismaClient.medico.create({
-            data: {
-                codigo: codigo,
-                cpf: cpf,
-                nome: nome,
-                crm: crm,
-                conselho: conselho,
-                uf_conselho: uf_conselho,
-                especialidade: especialidade,
-                email: email,
-                telefone: telefone,
-                contato_adicional: contato_adicional,
-                ativo: ativo
-            }
+            data
         });
 
         return medico;

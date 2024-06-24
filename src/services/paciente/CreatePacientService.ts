@@ -44,13 +44,18 @@ class CreatePacientService {
             celular,
             numero_carteira,
             ativo: true,
-            data_nascimento: data_nascimento ? new Date(data_nascimento) : null, // Exemplo de valor padrão para data_nascimento
+            data_nascimento: null, // Exemplo de valor padrão para data_nascimento
             endereco: endereco ?? '',
             contato_adicional: contato_adicional ?? '',
             email: email ?? '',
             cns: cns ?? '',
             convenio: {}
         };
+
+        if (!!data_nascimento) {
+            const zonedDateTime = new Date(`${data_nascimento}T12:00:00.000Z`);
+            data.data_nascimento = zonedDateTime;
+        }
 
         if (!!convenio_id)
             data.convenio = {

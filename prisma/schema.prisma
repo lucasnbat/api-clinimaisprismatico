@@ -74,7 +74,7 @@ model Consultas {
   paciente_id        Int
   data_consulta      DateTime
   horario            String
-  outras_informacoes String
+  outras_informacoes String?
   is_cancelada       Boolean   @default(false)
   created_at         DateTime? @default(now())
   updated_at         DateTime? @default(now())
@@ -87,18 +87,18 @@ model Consultas {
 
 model Medico {
   id                Int       @id @default(autoincrement())
-  codigo            String //digitavel
+  codigo            String? //digitavel
   cpf               String
   nome              String
-  crm               String
-  conselho          String
-  uf_conselho       String
-  especialidade     String
-  email             String
+  crm               String?
+  conselho          String?
+  uf_conselho       String?
+  especialidade     String?
+  email             String?
   telefone          String
-  contato_adicional String
+  contato_adicional String?
   ativo             Boolean   @default(true)
-  codigo_medico     Int       @default(0)
+  codigo_medico     String?
   created_at        DateTime? @default(now())
   updated_at        DateTime? @default(now())
 

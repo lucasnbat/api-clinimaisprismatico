@@ -12,8 +12,12 @@ class ListAllConsultasService {
         if (!!medico_id)
             filters.medico_id = medico_id;
 
-        if (!!data_consulta)
-            filters.data_consulta = new Date(data_consulta);
+        if (!!data_consulta){
+            filters.data_consulta = {
+                gte: new Date(`${data_consulta}T00:00:00.000Z`),
+                lte: new Date(`${data_consulta}T23:59:59.999Z`),
+            }
+        }
 
         if (!!paciente_id)
             filters.paciente_id = paciente_id;

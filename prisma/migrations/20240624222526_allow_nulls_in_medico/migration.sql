@@ -1,0 +1,10 @@
+-- AlterTable
+ALTER TABLE "Medico" ALTER COLUMN "crm" DROP NOT NULL,
+ALTER COLUMN "conselho" DROP NOT NULL,
+ALTER COLUMN "uf_conselho" DROP NOT NULL,
+ALTER COLUMN "especialidade" DROP NOT NULL,
+ALTER COLUMN "email" DROP NOT NULL,
+ALTER COLUMN "contato_adicional" DROP NOT NULL,
+ALTER COLUMN "codigo_medico" DROP NOT NULL,
+ALTER COLUMN "codigo_medico" DROP DEFAULT,
+ALTER COLUMN "codigo_medico" SET DATA TYPE TEXT;
