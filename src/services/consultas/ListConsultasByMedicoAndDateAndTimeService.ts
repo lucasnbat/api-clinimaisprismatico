@@ -20,7 +20,7 @@ class ListConsultasByMedicoAndDateAndTimeService {
             }
         }
 
-        console.log(_filter);
+        // console.log(_filter);
             // _filter.data_consulta = new Date(data_consulta);
 
         if (!!horario)
